@@ -13,8 +13,8 @@ def generate_surreal_image(filename="surreal_art.png"):
     draw = ImageDraw.Draw(image)
     
     for _ in range(100):  # Desenhar formas aleatórias
-        x1, y1 = random.randint(0, width), random.randint(0, height)
-        x2, y2 = random.randint(0, width), random.randint(0, height)
+        x1, x2 = sorted([random.randint(0, width - 1), random.randint(0, width - 1)])
+        y1, y2 = sorted([random.randint(0, height - 1), random.randint(0, height - 1)])
         color = tuple(random.randint(0, 255) for _ in range(3))
         draw.ellipse([x1, y1, x2, y2], fill=color, outline=color)
     
@@ -44,15 +44,20 @@ def sell_nft(image_filename, music_filename):
 
 # Loop principal
 def main():
-    while True:
-        print("\n--- Gerando um novo NFT surrealista ---")
-        img_file = "surreal_art.png"
-        music_file = "surreal_music.wav"
-        generate_surreal_image(img_file)
-        generate_surreal_music(music_file)
-        earnings = sell_nft(img_file, music_file)
-        print(f"💰 Lucro estimado: {earnings} ETH")
-        time.sleep(10)  # Espera 10 segundos antes de gerar o próximo
+    try:
+        while True:
+            print("\n--- Gerando um novo NFT surrealista ---")
+            img_file = "surreal_art.png"
+            music_file = "surreal_music.wav"
+            generate_surreal_image(img_file)
+            generate_surreal_music(music_file)
+            earnings = sell_nft(img_file, music_file)
+            print(f"\U0001F4B0 Lucro estimado: {earnings} ETH")
+            time.sleep(10)  # Espera 10 segundos antes de gerar o próximo
+    except KeyboardInterrupt:
+        print("\nExecução interrompida pelo usuário.")
 
 if __name__ == "__main__":
     main()
+
+
