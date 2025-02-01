@@ -20,7 +20,7 @@ DreamWeaver AI é um software inovador que gera imagens surrealistas e músicas 
 # Para adicionar ao GitHub, siga estes passos:
 # 1. Crie um repositório no GitHub chamado "DreamWeaverAI".
 # 2. No terminal, execute:
-# git clone https://github.com/SEU_USUARIO/DreamWeaverAI.git
+# git clone https://github.com/anonimatoo/DreamWeaverAI.git
 # cd DreamWeaverAI
 
 # 3. Criar e Ativar um Ambiente Virtual
